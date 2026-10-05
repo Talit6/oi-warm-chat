@@ -90,7 +90,7 @@ function MenuPage() {
         </div>
       </header>
 
-      <nav aria-label="Categorias" className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur">
+      <nav aria-label="Categorias" className="sticky top-0 z-30 border-b border-border bg-category-surface/95 backdrop-blur">
         <ul className="scrollbar-none mx-auto flex max-w-5xl gap-2 overflow-x-auto px-4 py-3">
           {sections.map(({ category }) => (
             <li key={category.id} className="shrink-0">
