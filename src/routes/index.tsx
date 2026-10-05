@@ -76,9 +76,9 @@ function MenuPage() {
       <header className="relative isolate overflow-hidden">
         <img src={settings?.cover_image || heroImg} alt="Pratos do restaurante" width={1600} height={1008} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-hero-fade" />
-        <div className="mx-auto flex min-h-[62vh] max-w-5xl flex-col justify-end px-4 pb-10 pt-24 animate-fade-up">
+        <div className="mx-auto flex min-h-[62vh] max-w-6xl flex-col justify-end px-4 pb-10 pt-24 animate-fade-up sm:pb-14">
           <img src={settings?.logo || logoAsset.url} alt={`Logo ${name}`} width={112} height={112} className="mb-5 h-24 w-24 rounded-full border-2 border-primary object-cover shadow-glow sm:h-28 sm:w-28" />
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Cardápio digital</p>
+          <p className="w-fit rounded-full border border-primary/20 bg-background/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary shadow-sm backdrop-blur">Cardápio digital</p>
           <h1 className="mt-2 text-4xl font-semibold leading-[1.05] sm:text-6xl">{name}</h1>
           <p className="mt-3 max-w-md text-lg text-muted-foreground">{settings?.tagline}</p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -96,13 +96,13 @@ function MenuPage() {
         </div>
       </header>
 
-      <nav aria-label="Categorias" className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur">
-        <ul className="scrollbar-none mx-auto flex max-w-5xl gap-2 overflow-x-auto px-4 py-3">
+      <nav aria-label="Categorias" className="sticky top-0 z-30 border-b border-border/70 bg-background/85 shadow-sm backdrop-blur-xl">
+        <ul className="scrollbar-none mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 py-3">
           {sections.map(({ category }) => (
             <li key={category.id} className="shrink-0">
               <a
                 href={`#cat-${category.id}`}
-                className={`block rounded-full border px-4 py-2 text-sm font-medium transition ${active === category.id ? "border-primary bg-primary text-primary-foreground" : "border-border text-muted-foreground hover:text-foreground"}`}
+                className={`block rounded-full border px-4 py-2.5 text-sm font-medium transition-colors ${active === category.id ? "border-primary bg-primary text-primary-foreground shadow-sm" : "border-border/80 bg-card/70 text-muted-foreground hover:border-primary/30 hover:bg-secondary/70 hover:text-foreground"}`}
               >
                 {category.name}
               </a>
@@ -111,16 +111,16 @@ function MenuPage() {
         </ul>
       </nav>
 
-      <main className="mx-auto max-w-5xl px-4 pt-6">
+      <main className="mx-auto max-w-6xl px-4 pt-8 sm:pt-10">
         {isLoading && (
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
             {[0, 1, 2, 3].map((i) => <Skeleton key={i} className="h-32 rounded-2xl" />)}
           </div>
         )}
         {error && <p className="py-10 text-center text-muted-foreground">Não foi possível carregar o cardápio. Tente novamente.</p>}
         {sections.map(({ category, products }) => (
-          <section key={category.id} id={`cat-${category.id}`} className="scroll-mt-20 py-6">
-            <h2 className="mb-4 text-2xl font-semibold sm:text-3xl">{category.name}</h2>
+          <section key={category.id} id={`cat-${category.id}`} className="scroll-mt-24 py-7 sm:py-8">
+            <h2 className="mb-5 text-2xl font-semibold tracking-tight sm:text-3xl">{category.name}</h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {products.map((p) => <ProductCard key={p.id} product={p} onOpen={setSelected} onAdd={(x) => add(x)} />)}
             </div>
@@ -130,7 +130,7 @@ function MenuPage() {
 
       {settings && <SocialReviews settings={settings} />}
 
-      <footer className="pb-28 text-center text-xs text-muted-foreground">
+      <footer className="mx-auto max-w-6xl border-t border-border/60 px-4 pb-28 pt-6 text-center text-xs text-muted-foreground">
         © {new Date().getFullYear()} {name} · <Link to="/admin" className="hover:text-primary">Área do restaurante</Link>
       </footer>
 
