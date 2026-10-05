@@ -11,7 +11,6 @@ import { ProductCard } from "@/components/menu/ProductCard";
 import { ProductDialog } from "@/components/menu/ProductDialog";
 import { CartSheet } from "@/components/menu/CartSheet";
 import { SocialReviews } from "@/components/menu/SocialReviews";
-import { InfoSection } from "@/components/menu/InfoSection";
 import { useCart } from "@/lib/cart";
 import { formatBRL, menuQuery, whatsappUrl, type Product } from "@/lib/menu";
 
@@ -123,7 +122,6 @@ function MenuPage() {
       </main>
 
       {settings && <SocialReviews settings={settings} />}
-      {settings && <InfoSection settings={settings} />}
 
       <footer className="pb-28 text-center text-xs text-muted-foreground">
         © {new Date().getFullYear()} {name} · <Link to="/admin" className="hover:text-primary">Área do restaurante</Link>
