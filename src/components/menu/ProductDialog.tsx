@@ -7,7 +7,7 @@ import { ProductImage } from "./ProductCard";
 
 export interface ProductDialogProps {
   product: Product | null;
-  categoryName?: string;
+  categoryName?: string | undefined;
   onClose: () => void;
   onAdd: (p: Product, qty: number) => void;
 }

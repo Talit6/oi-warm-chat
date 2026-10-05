@@ -22,14 +22,14 @@ export function ProductsTab({ products, categories }: { products: Product[]; cat
 
   async function save() {
     if (!draft) return;
-    if (!draft.name.trim()) return toast.error("Informe o nome");
-    if (!(Number(draft.price) >= 0)) return toast.error("Preço inválido");
+    if (!draft.name.trim()) { toast.error("Informe o nome"); return; }
+    if (!(Number(draft.price) >= 0)) { toast.error("Preço inválido"); return; }
     setSaving(true);
     const { id, ...row } = draft;
     const payload = { ...row, name: row.name.trim(), price: Number(row.price) };
     const res = id ? await supabase.from("products").update(payload).eq("id", id) : await supabase.from("products").insert(payload);
     setSaving(false);
-    if (res.error) return toast.error(res.error.message);
+    if (res.error) { toast.error(res.error.message); return; }
     toast.success("Produto salvo");
     setDraft(null);
     refresh();

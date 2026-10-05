@@ -104,39 +104,54 @@ export type Database = {
         Row: {
           address: string
           cover_image: string | null
+          facebook: string
           google_maps: string
+          google_rating: number | null
+          google_review_url: string
+          google_reviews_count: number | null
           id: number
           instagram: string
           logo: string | null
           opening_hours: string
           restaurant_name: string
           tagline: string
+          tiktok: string
           updated_at: string
           whatsapp: string
         }
         Insert: {
           address?: string
           cover_image?: string | null
+          facebook?: string
           google_maps?: string
+          google_rating?: number | null
+          google_review_url?: string
+          google_reviews_count?: number | null
           id?: number
           instagram?: string
           logo?: string | null
           opening_hours?: string
           restaurant_name?: string
           tagline?: string
+          tiktok?: string
           updated_at?: string
           whatsapp?: string
         }
         Update: {
           address?: string
           cover_image?: string | null
+          facebook?: string
           google_maps?: string
+          google_rating?: number | null
+          google_review_url?: string
+          google_reviews_count?: number | null
           id?: number
           instagram?: string
           logo?: string | null
           opening_hours?: string
           restaurant_name?: string
           tagline?: string
+          tiktok?: string
           updated_at?: string
           whatsapp?: string
         }

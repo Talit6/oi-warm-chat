@@ -17,7 +17,7 @@ export function CategoriesTab({ categories }: { categories: Category[] }) {
     if (!newName.trim()) return;
     const order = Math.max(0, ...categories.map((c) => c.sort_order)) + 1;
     const { error } = await supabase.from("categories").insert({ name: newName.trim(), sort_order: order });
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     setNewName("");
     refresh();
   }
@@ -25,7 +25,7 @@ export function CategoriesTab({ categories }: { categories: Category[] }) {
   async function rename() {
     if (!editing?.name.trim()) return;
     const { error } = await supabase.from("categories").update({ name: editing.name.trim() }).eq("id", editing.id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     setEditing(null);
     refresh();
   }
