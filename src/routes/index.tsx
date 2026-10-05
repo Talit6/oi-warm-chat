@@ -90,13 +90,13 @@ function MenuPage() {
         </div>
       </header>
 
-      <nav aria-label="Categorias" className="sticky top-0 z-30 border-b border-border bg-category-surface/95 backdrop-blur">
+      <nav aria-label="Categorias" className="sticky top-0 z-30 border-b border-primary-foreground/30 bg-category-surface/95 text-primary-foreground backdrop-blur">
         <ul className="scrollbar-none mx-auto flex max-w-5xl gap-2 overflow-x-auto px-4 py-3">
           {sections.map(({ category }) => (
             <li key={category.id} className="shrink-0">
               <a
                 href={`#cat-${category.id}`}
-                className={`block rounded-full border px-4 py-2 text-sm font-medium transition ${active === category.id ? "border-primary bg-primary text-primary-foreground" : "border-border text-muted-foreground hover:text-foreground"}`}
+                className={`block rounded-full border px-4 py-2 text-sm font-medium transition ${active === category.id ? "border-primary-foreground bg-primary-foreground text-primary" : "border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10"}`}
               >
                 {category.name}
               </a>
