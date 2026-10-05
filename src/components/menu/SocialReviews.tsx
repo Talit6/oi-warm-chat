@@ -9,7 +9,7 @@ function socialUrl(base: string, handle: string): string {
 
 export function SocialReviews({ settings }: { settings: Settings }) {
   const socials = [
-    { label: "Instagram", icon: Instagram, href: socialUrl("https://instagram.com/", settings.instagram || "https://www.instagram.com/restaurante_korujas/") },
+    { label: "Instagram", icon: Instagram, href: socialUrl("https://instagram.com/", settings.instagram || "https://www.instagram.com/restaurante_korujas?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==") },
     settings.facebook && { label: "Facebook", icon: Facebook, href: socialUrl("https://facebook.com/", settings.facebook) },
     settings.tiktok && { label: "TikTok", icon: Music2, href: socialUrl("https://tiktok.com/@", settings.tiktok) },
   ].filter(Boolean) as { label: string; icon: typeof Instagram; href: string }[];
