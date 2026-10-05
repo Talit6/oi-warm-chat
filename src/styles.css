@@ -27,6 +27,7 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
+  --color-category-surface: var(--category-surface);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -70,6 +71,7 @@
 :root {
   --radius: 1rem;
   --background: oklch(0.94 0.025 80);
+  --category-surface: oklch(0.84 0.06 70);
   --foreground: oklch(0.3 0.06 50);
   --card: oklch(0.97 0.018 82);
   --card-foreground: oklch(0.3 0.06 50);
