@@ -13,9 +13,7 @@ export function InfoSection({ settings }: { settings: Settings }) {
     { icon: MapPin, label: "Endereço", value: settings.address || "Em breve" },
     { icon: Clock, label: "Horário", value: settings.opening_hours || "Consulte pelo WhatsApp" },
     { icon: MessageCircle, label: "WhatsApp", value: settings.whatsapp, href: whatsappUrl(settings.whatsapp) },
-    ...(settings.instagram
-      ? [{ icon: Instagram, label: "Instagram", value: "@" + settings.instagram.replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/^@/, "").replace(/\/.*$/, ""), href: instagramUrl(settings.instagram) }]
-      : []),
+    { icon: Instagram, label: "Instagram", value: "@" + (settings.instagram || "https://www.instagram.com/restaurante_korujas/").replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/^@/, "").replace(/\/.*$/, ""), href: instagramUrl(settings.instagram || "https://www.instagram.com/restaurante_korujas/") },
   ];
   return (
     <section id="info" className="mx-auto max-w-5xl px-4 pb-32 pt-12">
