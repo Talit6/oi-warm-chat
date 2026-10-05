@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Instagram, MessageCircle, ShoppingBag } from "lucide-react";
+import { MessageCircle, ShoppingBag } from "lucide-react";
 import { toast } from "sonner";
 import heroImg from "@/assets/hero.jpg";
 import logoAsset from "@/assets/koruja-logo.jpg.asset.json";
@@ -82,18 +82,11 @@ function MenuPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Cardápio digital</p>
           <h1 className="mt-2 text-4xl font-semibold leading-[1.05] sm:text-6xl">{name}</h1>
           <p className="mt-3 max-w-md text-lg text-muted-foreground">{settings?.tagline}</p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button asChild variant="whatsapp" size="lg" className="h-12 w-fit rounded-full px-6 font-semibold">
-              <a href={whatsappUrl(phone, `Olá! Vim pelo cardápio do ${name}.`)} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5" /> Pedir pelo WhatsApp
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="h-12 w-fit rounded-full px-6 font-semibold">
-              <a href="https://www.instagram.com/restaurante_korujas?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
-                <Instagram className="h-5 w-5" /> Instagram
-              </a>
-            </Button>
-          </div>
+          <Button asChild variant="whatsapp" size="lg" className="mt-6 h-12 w-fit rounded-full px-6 font-semibold">
+            <a href={whatsappUrl(phone, `Olá! Vim pelo cardápio do ${name}.`)} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5" /> Pedir pelo WhatsApp
+            </a>
+          </Button>
         </div>
       </header>
 
