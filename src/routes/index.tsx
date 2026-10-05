@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { MessageCircle, ShoppingBag } from "lucide-react";
 import { toast } from "sonner";
 import heroImg from "@/assets/hero.jpg";
+import logoAsset from "@/assets/koruja-logo.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ProductCard } from "@/components/menu/ProductCard";
@@ -77,7 +78,7 @@ function MenuPage() {
         <img src={settings?.cover_image || heroImg} alt="Pratos do restaurante" width={1600} height={1008} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-hero-fade" />
         <div className="mx-auto flex min-h-[62vh] max-w-5xl flex-col justify-end px-4 pb-10 pt-24 animate-fade-up">
-          {settings?.logo && <img src={settings.logo} alt={`Logo ${name}`} className="mb-5 h-20 w-20 rounded-full border-2 border-primary object-cover" />}
+          <img src={settings?.logo || logoAsset.url} alt={`Logo ${name}`} width={112} height={112} className="mb-5 h-24 w-24 rounded-full border-2 border-primary object-cover shadow-glow sm:h-28 sm:w-28" />
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Cardápio digital</p>
           <h1 className="mt-2 text-4xl font-semibold leading-[1.05] sm:text-6xl">{name}</h1>
           <p className="mt-3 max-w-md text-lg text-muted-foreground">{settings?.tagline}</p>
