@@ -14,7 +14,7 @@ export function InfoSection({ settings }: { settings: Settings }) {
     { icon: Clock, label: "Horário", value: settings.opening_hours || "Consulte pelo WhatsApp" },
     { icon: MessageCircle, label: "WhatsApp", value: settings.whatsapp, href: whatsappUrl(settings.whatsapp) },
     ...(settings.instagram
-      ? [{ icon: Instagram, label: "Instagram", value: settings.instagram, href: instagramUrl(settings.instagram) }]
+      ? [{ icon: Instagram, label: "Instagram", value: "@" + settings.instagram.replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/^@/, "").replace(/\/.*$/, ""), href: instagramUrl(settings.instagram) }]
       : []),
   ];
   return (
