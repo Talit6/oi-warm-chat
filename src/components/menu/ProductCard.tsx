@@ -23,17 +23,17 @@ export function ProductCard({ product, onOpen, onAdd }: ProductCardProps) {
   return (
     <article
       className={cn(
-        "group flex gap-4 rounded-2xl border border-border bg-card p-3 shadow-card transition hover:border-primary/40",
+        "group flex gap-4 rounded-3xl border border-border/80 bg-card/95 p-3 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-card",
         unavailable && "opacity-60",
       )}
     >
       <button
         type="button"
         onClick={() => onOpen(product)}
-        className="flex flex-1 gap-4 text-left focus-visible:outline-none"
+        className="flex flex-1 gap-4 rounded-2xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card"
         aria-label={`Ver detalhes de ${product.name}`}
       >
-        <ProductImage src={product.image} alt={product.name} className="h-24 w-24 shrink-0 rounded-xl sm:h-28 sm:w-28" />
+        <ProductImage src={product.image} alt={product.name} className="h-24 w-24 shrink-0 rounded-2xl sm:h-28 sm:w-28" />
         <div className="flex min-w-0 flex-1 flex-col">
           <div className="flex items-start gap-2">
             <h3 className="text-base font-semibold leading-tight sm:text-lg">{product.name}</h3>
@@ -54,7 +54,7 @@ export function ProductCard({ product, onOpen, onAdd }: ProductCardProps) {
         disabled={unavailable}
         onClick={() => onAdd(product)}
         aria-label={`Adicionar ${product.name}`}
-        className="self-end rounded-full bg-primary p-2.5 text-primary-foreground transition hover:scale-105 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground"
+        className="self-end rounded-full bg-primary p-3 text-primary-foreground shadow-sm transition duration-200 hover:scale-105 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground"
       >
         <Plus className="h-5 w-5" />
       </button>
