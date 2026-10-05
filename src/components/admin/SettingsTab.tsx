@@ -30,20 +30,20 @@ export function SettingsTab({ settings }: { settings: Settings }) {
 
   async function save() {
     const whatsapp = normalizeWhatsApp(form.whatsapp);
-    if (whatsapp.length < 12) return toast.error("WhatsApp inválido");
+    if (whatsapp.length < 12) { toast.error("WhatsApp inválido"); return; }
     const { id: _id, updated_at: _u, ...rest } = form;
     const toNum = (v: unknown) => (v === null || v === "" || v === undefined ? null : Number(String(v).replace(",", ".")));
     const google_rating = toNum(rest.google_rating);
     const google_reviews_count = toNum(rest.google_reviews_count);
-    if (google_rating !== null && !(google_rating >= 0 && google_rating <= 5)) return toast.error("Nota deve ser entre 0 e 5");
-    if (google_reviews_count !== null && !(Number.isInteger(google_reviews_count) && google_reviews_count >= 0)) return toast.error("Quantidade inválida");
+    if (google_rating !== null && !(google_rating >= 0 && google_rating <= 5)) { toast.error("Nota deve ser entre 0 e 5"); return; }
+    if (google_reviews_count !== null && !(Number.isInteger(google_reviews_count) && google_reviews_count >= 0)) { toast.error("Quantidade inválida"); return; }
     setSaving(true);
     const { error } = await supabase
       .from("restaurant_settings")
       .update({ ...rest, whatsapp, google_rating, google_reviews_count })
       .eq("id", 1);
     setSaving(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Configurações salvas");
     qc.invalidateQueries({ queryKey: ["menu"] });
   }

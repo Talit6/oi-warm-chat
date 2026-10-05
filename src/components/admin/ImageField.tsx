@@ -8,7 +8,7 @@ export function ImageField({ label, value, onChange }: { label: string; value: s
 
   async function handle(file: File | undefined) {
     if (!file) return;
-    if (!file.type.startsWith("image/")) return toast.error("Envie um arquivo de imagem");
+    if (!file.type.startsWith("image/")) { toast.error("Envie um arquivo de imagem"); return; }
     setBusy(true);
     try {
       onChange(await uploadMenuImage(file));
