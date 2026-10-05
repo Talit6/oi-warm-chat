@@ -1,19 +1,13 @@
-import { Clock, Instagram, MapPin, MessageCircle } from "lucide-react";
+import { Clock, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Settings } from "@/lib/menu";
 import { whatsappUrl } from "@/lib/menu";
-
-function instagramUrl(handle: string): string {
-  if (handle.startsWith("http")) return handle;
-  return `https://instagram.com/${handle.replace(/^@/, "")}`;
-}
 
 export function InfoSection({ settings }: { settings: Settings }) {
   const rows = [
     { icon: MapPin, label: "Endereço", value: settings.address || "Em breve" },
     { icon: Clock, label: "Horário", value: settings.opening_hours || "Consulte pelo WhatsApp" },
     { icon: MessageCircle, label: "WhatsApp", value: settings.whatsapp, href: whatsappUrl(settings.whatsapp) },
-    { icon: Instagram, label: "Instagram", value: "@restaurante_korujas", href: instagramUrl(settings.instagram || "https://www.instagram.com/restaurante_korujas?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==") },
   ];
   return (
     <section id="info" className="mx-auto max-w-5xl px-4 pb-32 pt-12">
